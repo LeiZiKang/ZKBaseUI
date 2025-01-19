@@ -20,13 +20,17 @@ public struct BaseSelectedView<Content: View>: View {
     /// TODO: 添加picker操作
     public var pickerAction: () -> Void
     
-    public init(content: @escaping () -> Content, itemsCount: Int, title: String, cancleBtnAction: @escaping () -> Void, saveBtnAction: @escaping () -> Void, pickerAction: @escaping () -> Void) {
+    /// Must be SF symbols
+    public var AddImage: Image
+    
+    public init(content: @escaping () -> Content, itemsCount: Int, title: String, addImage: Image = Image(systemName: "plus.circle.fill"), cancleBtnAction: @escaping () -> Void = {}, saveBtnAction: @escaping () -> Void = {}, pickerAction: @escaping () -> Void = {}) {
         self.content = content
         self.itemsCount = itemsCount
         self.title = title
         self.cancleBtnAction = cancleBtnAction
         self.saveBtnAction = saveBtnAction
         self.pickerAction = pickerAction
+        self.AddImage = addImage
     }
     
     public var body: some View {
@@ -57,6 +61,8 @@ public struct BaseSelectedView<Content: View>: View {
                             saveBtnAction()
                             self.dismiss()
                         }
+                        .foregroundStyle(Color.accentColor)
+                        .bold()
                         
                     }
                     
@@ -70,8 +76,8 @@ public struct BaseSelectedView<Content: View>: View {
                             Button {
                                 pickerAction()
                             } label: {
-                                Image(systemName: "plus.circle.fill")
-                                    .foregroundStyle(Color.primary)
+                                AddImage
+                                    .foregroundStyle(Color.accentColor)
                             }
                         }
                     }
@@ -80,3 +86,17 @@ public struct BaseSelectedView<Content: View>: View {
     }
 }
 
+#if DEBUG
+fileprivate struct TestView: View {
+    var body: some View {
+        BaseSelectedView(content: {
+            Text("hello")
+        }, itemsCount: 0, title: "你好", addImage: Image(systemName: "document.viewfinder")
+        )
+    }
+}
+
+#Preview(body: {
+    TestView()
+})
+#endif
