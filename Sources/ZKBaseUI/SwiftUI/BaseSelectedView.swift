@@ -13,11 +13,11 @@ public struct BaseSelectedView<Content: View>: View {
     public let content: () -> Content
     public var itemsCount: Int
     public  let title: String
-    /// TODO: 添加取消操作
+    ///  添加取消操作
     public var cancleBtnAction: () -> Void
-    /// TODO: 添加保存操作
+    /// 添加保存操作
     public var saveBtnAction: () -> Void
-    /// TODO: 添加picker操作
+    /// 添加picker操作
     public var pickerAction: () -> Void
     
     /// Must be SF symbols
