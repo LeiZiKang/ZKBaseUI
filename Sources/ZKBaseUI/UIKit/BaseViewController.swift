@@ -7,16 +7,23 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
+open class BaseViewController: UIViewController {
 
-
-    override func viewDidLoad() {
+    public init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required public init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    open override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
     }
     
     private func setUpUI() {
-        
         // background
         view.backgroundColor = .systemBackground
         
@@ -39,7 +46,7 @@ class BaseViewController: UIViewController {
 
 #Preview {
     let testVC = BaseViewController()
-        .backGroundColor(.systemBackground)
+//        .backGroundColor(.systemBackground)
         .navTitle("你好")
     
     return UINavigationController(rootViewController: testVC)
