@@ -9,10 +9,7 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
-   private  var navTitle: String?
-   private  var backgroundColor: UIColor = .systemBackground
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
@@ -21,19 +18,17 @@ class BaseViewController: UIViewController {
     private func setUpUI() {
         
         // background
-        view.backgroundColor = backgroundColor
+        view.backgroundColor = .systemBackground
         
-        // nav bar
-        self.navigationItem.title = navTitle
     }
     
     @discardableResult public func navTitle(_ title: String) -> Self {
-        self.navTitle = title
+        self.navigationItem.title = title
         return self
     }
     
     @discardableResult public func backGroundColor(_ color: UIColor) -> Self   {
-        self.backgroundColor = color
+        view.backgroundColor = color
         return self
     }
     

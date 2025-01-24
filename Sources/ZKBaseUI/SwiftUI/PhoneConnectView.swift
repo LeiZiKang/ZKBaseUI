@@ -47,6 +47,8 @@ public struct PhoneConnectView: View {
     }
 }
 
+#if DEBUG
 #Preview {
     PhoneConnectView(phoneIconFrame: UIScreen.main.bounds.width - 80, linkIconFrame: UIScreen.main.bounds.height / 15.0)
 }
+#endif

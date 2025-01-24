@@ -52,8 +52,10 @@ extension View {
     }
 }
 
+#if DEBUG
 #Preview {
     Circle()
         .frame(width: 100, height: 100)
         .redCircleBadge(10)
 }
+#endif

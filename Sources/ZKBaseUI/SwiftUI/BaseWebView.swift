@@ -26,3 +26,9 @@ public struct BaseWebView: UIViewRepresentable {
         uiView.load(request)
     }
 }
+
+#if DEBUG
+#Preview {
+    BaseWebView(url: URL(string: "https://sarunw.com/posts/xcode-previews-with-uikit-appkit-in-xcode-15/")!)
+}
+#endif
