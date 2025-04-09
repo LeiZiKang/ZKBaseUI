@@ -13,13 +13,13 @@ public struct CapuselButton: View {
     let fillColor: Color
     let imgWidth: CGFloat
     
-   public init(content: (text: String, desc: String, img: Image), fillColor: Color, imgWidth: CGFloat = 40) {
+    public init(content: (text: String, desc: String, img: Image), fillColor: Color, imgWidth: CGFloat = 40) {
         self.content = content
         self.fillColor = fillColor
-       self.imgWidth = imgWidth
+        self.imgWidth = imgWidth
     }
     
-   public var body: some View {
+    public var body: some View {
         Capsule()
             .foregroundStyle(fillColor)
             .frame(height: 80)
@@ -50,4 +50,9 @@ public struct CapuselButton: View {
                 }
             }
     }
+}
+
+#Preview {
+    CapuselButton(content: (text: "Hello", desc: "word", img: Image(systemName: "apple.logo")), fillColor: .blue, imgWidth: 40)
+        .padding()
 }

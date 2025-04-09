@@ -26,3 +26,8 @@ public struct RoundRectangleButton: View {
             .cornerRadius(5)
     }
 }
+
+#Preview {
+    RoundRectangleButton(label: "Hello", color: .blue)
+        .padding()
+}
